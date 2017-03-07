@@ -30,7 +30,9 @@ class App extends Component {
             onAddTransaction={this.handleAddTransaction}
           />
           <div className="spacer"></div>
-          <Total />
+          <Total
+            transactions={this.state.transactions}
+          />
           <div className="spacer"></div>
         </div>
         <TransactionsList

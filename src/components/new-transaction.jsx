@@ -55,7 +55,7 @@ class  NewTransaction extends React.Component {
                 <span className="label-title">Date :&nbsp;</span>
                 <input
                   name="date"
-                  type="text"
+                  type="date"
                   className="input-box"
                   value={this.state.date}
                   onChange={this.handleInputChange}
@@ -75,7 +75,7 @@ class  NewTransaction extends React.Component {
                 <span className="label-title">Montant :&nbsp;</span>
                 <input
                   name="amount"
-                  type="text"
+                  type="number"
                   className="input-box"
                   value={this.state.amount}
                   onChange={this.handleInputChange}
