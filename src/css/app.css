@@ -104,3 +104,23 @@
 .submit-btn:hover {
   background-color: #A81400;
 }
+
+.swimo-table {
+  font-size: 12pt;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.swimo-table th {
+  background-color: rgba(232,177,171, 0.3);
+  color: #E81B00;
+  }
+
+.swimo-table th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+.swimo-table tr:nth-child(even) {
+  background-color: rgba(232,177,171, 0.3)
+}

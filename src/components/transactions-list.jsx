@@ -24,7 +24,7 @@ class TransactionsList extends React.Component {
 					</div>
 				}
 				{this.props.transactions.length > 0 &&
-					<table>
+					<table className="swimo-table">
 						<thead>
 							<tr>
 								<th>Date</th>
