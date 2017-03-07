@@ -25,11 +25,16 @@ class  NewTransaction extends React.Component {
   }
 
   handleSubmit(event) {
-    this.props.onAddTransaction({
-      date: this.state.date,
-      description: this.state.description,
-      amount: this.state.amount
-    });
+    if (this.state.date !== '' 
+        && this.state.description !== ''
+        && this.state.amount)
+    {
+      this.props.onAddTransaction({
+        date: this.state.date,
+        description: this.state.description,
+        amount: this.state.amount
+      });
+    }
     this.handleClearForm();
     event.preventDefault();
   }
