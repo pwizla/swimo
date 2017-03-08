@@ -1,10 +1,10 @@
 import React from 'react';
-import WARNING_THRESHOLD from '../lib/settings';
+import SETTINGS from '../lib/settings';
 
 class Total extends React.Component {
 
 	render() {
-		console.log("WARNING_THRESHOLD: ", WARNING_THRESHOLD);
+		const threshold = SETTINGS.warningThreshold;
 		const total = this.props.total;
 		return (
 			<div className="component-container subtle-highlight">
@@ -12,12 +12,12 @@ class Total extends React.Component {
 					<div className="title-box">
 						Solde
 					</div>
-					{total > WARNING_THRESHOLD &&
+					{total > threshold &&
 						<div className="total-amount">
 							{total.toFixed(2)} €
 						</div>
 					}
-					{(total < WARNING_THRESHOLD && total > 0) &&
+					{(total < threshold && total > 0) &&
 						<div className="total-amount warning">
 							{total.toFixed(2)} €
 						</div>

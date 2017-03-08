@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './css/app.css';
+import './css/react-bootstrap-table-all.min.css';
 import Header from './components/header.jsx';
 import NewTransaction from './components/new-transaction';
 import TransactionsList from './components/transactions-list';
@@ -59,9 +60,11 @@ class App extends Component {
           />
           <div className="spacer"></div>
         </div>
-        <TransactionsList
-          transactions={this.state.transactions}
-        />
+        <div className="component-row">
+          <TransactionsList
+            transactions={this.state.transactions}
+          />
+        </div>
       </div>
     );
   }

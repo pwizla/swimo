@@ -1,20 +1,27 @@
 import React from 'react';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 class TransactionsList extends React.Component {
+	constructor(props) {
+	   super(props);
 
-	_renderTransaction(transaction) {
-		return (
-			<tr>
-				<td>{transaction.date}</td>
-				<td>{transaction.description}</td>
-				<td>{transaction.amount}</td>
-			</tr>
-		);
-	}
+	   this.options = {
+	     defaultSortName: 'date',
+	     defaultSortOrder: 'desc',
+	   };
+	 }
 
 	render() {
+		const transactions = this.props.transactions;
+		const selectRow = {
+			mode: 'checkbox',
+			clickToSelect: true,
+			bgColor: 'rgba(18,84,181,.4)'
+		 };
+
 		return (
-			<div className="component-container">
+			<div className="component-container narrow-table">
+			{/* remove narrow table to get full page width table */}
 				<div className="title-box">
 					Liste des transactions
 				</div>
@@ -24,19 +31,57 @@ class TransactionsList extends React.Component {
 					</div>
 				}
 				{this.props.transactions.length > 0 &&
-					<table className="swimo-table">
-						<thead>
-							<tr>
-								<th>Date</th>
-								<th>Description</th>
-								<th>Montant</th>
-							</tr>
-						</thead>
-						<tbody>
-							{this.props.transactions.map((transaction) =>  this._renderTransaction(transaction))}
-						</tbody>
-					</table>
-				}	
+					<BootstrapTable
+						data={transactions}
+						options={this.options}
+						selectRow={selectRow}	
+						hover={true}
+						bordered={false}
+						tableHeaderClass='swimo-table-header'
+						tableBodyClass='swimo-table-body'
+						tableStyle={{margin: 0}}>
+
+						<TableHeaderColumn
+				      isKey={true}
+			      	hidden={true}
+				      editable={false}
+							dataField='key'>
+						</TableHeaderColumn>
+			      <TableHeaderColumn
+				      dataSort={true}
+							headerAlign='left'
+							dataAlign='left'
+							width='20%'
+							dataField='date'>
+								Date
+						</TableHeaderColumn>
+			      <TableHeaderColumn
+				      dataSort={true}
+				      width='30%'
+							headerAlign='left'
+							dataAlign='left'
+							dataField='description'>
+								Description
+						</TableHeaderColumn>
+						<TableHeaderColumn
+				      dataSort={true}
+				      // editable={false}
+				      width='30%'
+							headerAlign='left'
+							dataAlign='left'
+							dataField='category'>
+								Catégorie
+						</TableHeaderColumn>
+			      <TableHeaderColumn
+				      dataSort={true}
+							width='20%'
+							headerAlign='right'
+							dataAlign='right'
+							dataField='amount'>
+								Montant
+						</TableHeaderColumn>
+				  </BootstrapTable>
+				}
 			</div>
 		);
 	}

@@ -1,3 +1,18 @@
-const WARNING_THRESHOLD = 200;
+const SETTINGS = {
+	warningThreshold: 200,
+	categories: [
+		'',
+		'Courses',
+		'Factures',
+		'Impôts',
+		'Loyer',
+		'Plaisir Perso',
+		'Salaire',
+		'Santé',
+		'Sorties',
+		'Transports',
+		'Autres'
+	],
+}
 
-export default WARNING_THRESHOLD;
+export default SETTINGS;
