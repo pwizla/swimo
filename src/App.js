@@ -9,15 +9,27 @@ class App extends Component {
   constructor() {
     super();
     this.handleAddTransaction = this.handleAddTransaction.bind(this);
+    this.getTotalAmount = this.getTotalAmount.bind(this);
     this.state = {
       transactions: [],
     };
   }
 
-  handleAddTransaction(obj) {
-    this.setState({
-      transactions: this.state.transactions.concat(obj)
+  getTotalAmount () {
+    const transactions = this.state.transactions;
+    const amounts = [];
+    transactions.map( item => {
+      return amounts.push(Number(item.amount));
     });
+
+    let newTotal = amounts.reduce( (a, b) => {
+      return a + b;
+    }, 0);
+
+    this.setState({total: newTotal});
+    this.saveLocally(newTotal, transactions);
+  }
+
   }
 
   render() {
@@ -32,6 +44,7 @@ class App extends Component {
           <div className="spacer"></div>
           <Total
             transactions={this.state.transactions}
+            total={this.state.total}
           />
           <div className="spacer"></div>
         </div>
