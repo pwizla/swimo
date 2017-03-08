@@ -1,4 +1,5 @@
 import React from 'react';
+import SETTINGS from '../lib/settings';
 
 class  NewTransaction extends React.Component {
   constructor(props) {
