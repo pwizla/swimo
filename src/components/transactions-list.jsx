@@ -2,19 +2,23 @@ import React from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 class TransactionsList extends React.Component {
+	constructor(props) {
+	   super(props);
 
-	_renderTransaction(transaction) {
-		return (
-			<tr>
-				<td>{transaction.date}</td>
-				<td>{transaction.description}</td>
-				<td>{transaction.amount}</td>
-			</tr>
-		);
-	}
+	   this.options = {
+	     defaultSortName: 'date',
+	     defaultSortOrder: 'desc',
+	   };
+	 }
 
 	render() {
 		const transactions = this.props.transactions;
+		const selectRow = {
+			mode: 'checkbox',
+			clickToSelect: true,
+			bgColor: 'rgba(18,84,181,.4)'
+		 };
+
 		return (
 			<div className="component-container narrow-table">
 			{/* remove narrow table to get full page width table */}
@@ -29,7 +33,10 @@ class TransactionsList extends React.Component {
 				{this.props.transactions.length > 0 &&
 					<BootstrapTable
 						data={transactions}
+						options={this.options}
+						selectRow={selectRow}	
 						hover={true}
+						bordered={false}
 						tableHeaderClass='swimo-table-header'
 						tableBodyClass='swimo-table-body'
 						tableStyle={{margin: 0}}>
