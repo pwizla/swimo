@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './css/app.css';
+import './css/react-bootstrap-table-all.min.css';
 import Header from './components/header.jsx';
 import NewTransaction from './components/new-transaction';
 import TransactionsList from './components/transactions-list';
