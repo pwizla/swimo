@@ -47,8 +47,11 @@
 }
 
 .total-box {
-  width: 165px;
-}
+  display: flex;
+  flex-direction: column;
+  width: 365px;
+/*  flex-grow: 1;
+*/}
 
 .title-box {
   font-weight: bold;
@@ -57,7 +60,11 @@
   padding: 0 0 30px 0;
 }
 
-.form-box {
+.total-amount {
+  font-weight: bold;
+  font-size: 24pt;
+  text-align: right;
+  margin-top: -30px;
 }
 
 .new-transac-form-item {
