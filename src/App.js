@@ -31,6 +31,13 @@ class App extends Component {
     this.saveLocally(newTotal, transactions);
   }
 
+  handleAddTransaction(obj) {
+    let transactions = this.state.transactions;
+    transactions.push(obj);
+    this.setState({transactions: transactions});
+    this.getTotalAmount();
+  }
+
   saveLocally(total, transactions) {
     localStorage.setItem('swimo-transactions', JSON.stringify(transactions));
     localStorage.setItem('swimo-total', JSON.stringify(total));

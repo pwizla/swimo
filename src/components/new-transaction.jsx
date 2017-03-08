@@ -30,9 +30,10 @@ class  NewTransaction extends React.Component {
         && this.state.amount)
     {
       this.props.onAddTransaction({
+        key: Date.now(),
         date: this.state.date,
         description: this.state.description,
-        amount: this.state.amount
+        amount: Number(this.state.amount).toFixed(2)
       });
     }
     this.handleClearForm();
