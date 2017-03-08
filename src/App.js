@@ -60,9 +60,11 @@ class App extends Component {
           />
           <div className="spacer"></div>
         </div>
-        <TransactionsList
-          transactions={this.state.transactions}
-        />
+        <div className="component-row">
+          <TransactionsList
+            transactions={this.state.transactions}
+          />
+        </div>
       </div>
     );
   }

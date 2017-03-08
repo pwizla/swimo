@@ -1,4 +1,5 @@
 import React from 'react';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 class TransactionsList extends React.Component {
 
@@ -13,8 +14,10 @@ class TransactionsList extends React.Component {
 	}
 
 	render() {
+		const transactions = this.props.transactions;
 		return (
-			<div className="component-container">
+			<div className="component-container narrow-table">
+			{/* remove narrow table to get full page width table */}
 				<div className="title-box">
 					Liste des transactions
 				</div>
@@ -24,19 +27,48 @@ class TransactionsList extends React.Component {
 					</div>
 				}
 				{this.props.transactions.length > 0 &&
-					<table className="swimo-table">
-						<thead>
-							<tr>
-								<th>Date</th>
-								<th>Description</th>
-								<th>Montant</th>
-							</tr>
-						</thead>
-						<tbody>
-							{this.props.transactions.map((transaction) =>  this._renderTransaction(transaction))}
-						</tbody>
-					</table>
-				}	
+					<BootstrapTable
+						data={transactions}
+						hover={true}
+						tableHeaderClass='swimo-table-header'
+						tableBodyClass='swimo-table-body'
+						tableStyle={{margin: 0}}>
+
+			      <TableHeaderColumn
+				      dataSort={true}
+							headerAlign='left'
+							dataAlign='left'
+							width='20%'
+							dataField='date'>
+								Date
+						</TableHeaderColumn>
+			      <TableHeaderColumn
+				      dataSort={true}
+				      width='30%'
+							headerAlign='left'
+							dataAlign='left'
+							dataField='description'>
+								Description
+						</TableHeaderColumn>
+						<TableHeaderColumn
+				      dataSort={true}
+				      // editable={false}
+				      width='30%'
+							headerAlign='left'
+							dataAlign='left'
+							dataField='category'>
+								Catégorie
+						</TableHeaderColumn>
+			      <TableHeaderColumn
+				      dataSort={true}
+							width='20%'
+							headerAlign='right'
+							dataAlign='right'
+							dataField='amount'>
+								Montant
+						</TableHeaderColumn>
+				  </BootstrapTable>
+				}
 			</div>
 		);
 	}
