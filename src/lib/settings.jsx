@@ -1,0 +1,3 @@
+const WARNING_THRESHOLD = 200;
+
+export default WARNING_THRESHOLD;

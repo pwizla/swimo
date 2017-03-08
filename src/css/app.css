@@ -124,3 +124,12 @@
 .swimo-table tr:nth-child(even) {
   background-color: rgba(232,177,171, 0.3)
 }
+
+.warning {
+  color: #F56B0C;
+}
+
+.danger {
+  background-color: #E81B00;
+  color: #EFEFEF;
+}
