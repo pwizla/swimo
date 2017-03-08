@@ -7,7 +7,8 @@ class  NewTransaction extends React.Component {
     this.state = {
       date: '',
       description: '',
-      amount: ''
+      category: '',
+      amount: '',
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -28,13 +29,15 @@ class  NewTransaction extends React.Component {
   handleSubmit(event) {
     if (this.state.date !== '' 
         && this.state.description !== ''
-        && this.state.amount)
+        && this.state.amount
+        && this.state.category)
     {
       this.props.onAddTransaction({
         key: Date.now(),
         date: this.state.date,
         description: this.state.description,
-        amount: Number(this.state.amount).toFixed(2)
+        category: this.state.category,
+        amount: Number(this.state.amount).toFixed(2),
       });
     }
     this.handleClearForm();
@@ -45,6 +48,7 @@ class  NewTransaction extends React.Component {
     this.setState({
       date: '',
       description: '',
+      category: '',
       amount: '',
     })
   }
@@ -77,6 +81,18 @@ class  NewTransaction extends React.Component {
                   value={this.state.description}
                   onChange={this.handleInputChange}
                 />
+              </label>
+              <label className="new-transac-form-item">
+                <span className="label-title">Catégorie :&nbsp;</span>
+                <select
+                  name="category"
+                  className="input-box"
+                  value={this.state.category}
+                  onChange={this.handleInputChange}>
+                  {SETTINGS.categories.map( item => {
+                    return <option key={item} value={item}>{item}</option>
+                  })}
+                </select>
               </label>
               <label className="new-transac-form-item">
                 <span className="label-title">Montant :&nbsp;</span>
