@@ -11,7 +11,8 @@ class App extends Component {
     this.handleAddTransaction = this.handleAddTransaction.bind(this);
     this.getTotalAmount = this.getTotalAmount.bind(this);
     this.state = {
-      transactions: [],
+      transactions: JSON.parse(localStorage.getItem('swimo-transactions')) || [],
+      total: JSON.parse(localStorage.getItem('swimo-total')) || 0
     };
   }
 
@@ -30,6 +31,9 @@ class App extends Component {
     this.saveLocally(newTotal, transactions);
   }
 
+  saveLocally(total, transactions) {
+    localStorage.setItem('swimo-transactions', JSON.stringify(transactions));
+    localStorage.setItem('swimo-total', JSON.stringify(total));
   }
 
   render() {
