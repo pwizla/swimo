@@ -41,6 +41,12 @@ class TransactionsList extends React.Component {
 						tableBodyClass='swimo-table-body'
 						tableStyle={{margin: 0}}>
 
+						<TableHeaderColumn
+				      isKey={true}
+			      	hidden={true}
+				      editable={false}
+							dataField='key'>
+						</TableHeaderColumn>
 			      <TableHeaderColumn
 				      dataSort={true}
 							headerAlign='left'
