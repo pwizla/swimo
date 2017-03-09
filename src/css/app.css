@@ -37,7 +37,7 @@
 }
 
 .spacer {
-  flex-grow: 1;
+  width: 200px;
   background-color: #efefef;
 
 }
@@ -50,9 +50,9 @@
 .total-box {
   display: flex;
   flex-direction: column;
-  width: 365px;
-/*  flex-grow: 1;
-*/}
+  width: 575px;
+  padding-right: 145px;
+}
 
 .title-box {
   font-weight: bold;
