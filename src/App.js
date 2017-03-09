@@ -68,7 +68,7 @@ class App extends Component {
           'restant': 0,
         },
       },
-      flatBudget: [],
+      flatBudget: JSON.parse(localStorage.getItem('swimo-flatbudget')) || [],
     };
   }
 
@@ -120,6 +120,7 @@ class App extends Component {
     localStorage.setItem('swimo-transactions', JSON.stringify(this.state.transactions));
     localStorage.setItem('swimo-total', JSON.stringify(this.state.total));
     localStorage.setItem('swimo-budget', JSON.stringify(this.state.budget));
+    localStorage.setItem('swimo-flatbudget', JSON.stringify(this.state.flatBudget));
   }
 
   render() {
