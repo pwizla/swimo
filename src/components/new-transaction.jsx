@@ -1,7 +1,7 @@
 import React from 'react';
 import SETTINGS from '../lib/settings';
 
-class  NewTransaction extends React.Component {
+class NewTransaction extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

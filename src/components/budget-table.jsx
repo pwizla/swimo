@@ -2,36 +2,31 @@ import React from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 class BudgetTable extends React.Component {
-	constructor(props) {
-	   super(props);
+	// constructor(props) {
+	//    super(props);
 
-	   this.options = {
-	     defaultSortName: 'category',
-	     defaultSortOrder: 'asc',
-	   };
-	 }
+	//    this.options = {
+	//      defaultSortName: 'category',
+	//      defaultSortOrder: 'desc',
+	//    };
+	//  }
 
 	render() {
-		const budget = this.props.budget;
-		// const selectRow = {
-		// 	mode: 'checkbox',
-		// 	clickToSelect: true,
-		// 	bgColor: 'rgba(18,84,181,.4)'
-		//  };
+		const flatBudget = this.props.flatBudget;
 
 		return (
-			<div className="component-container narrow-table">
+			<div className="component-container budget-table">
 			{/* remove narrow table to get full page width table */}
 				<div className="title-box">
 					Budget
 				</div>
 				<BootstrapTable
-					data={budget}
+					data={flatBudget}
 					options={this.options}
 					hover={true}
 					bordered={false}
-					tableHeaderClass='swimo-table-header'
-					tableBodyClass='swimo-table-body'
+					tableHeaderClass='budget-table-header'
+					tableBodyClass='budget-table-body'
 					tableStyle={{margin: 0}}>
 
 		      <TableHeaderColumn
@@ -39,15 +34,23 @@ class BudgetTable extends React.Component {
 			      isKey={true}
 						headerAlign='left'
 						dataAlign='left'
-						width='20%'
-						dataField='enveloppe'>
-							Enveloppe
+						width='30%'
+						dataField='category'>
+							Catégorie
 					</TableHeaderColumn>
 		      <TableHeaderColumn
 			      dataSort={true}
 			      width='30%'
 						headerAlign='left'
-						dataAlign='left'
+						dataAlign='right'
+						dataField='enveloppe'>
+							Enveloppe
+					</TableHeaderColumn>
+					<TableHeaderColumn
+			      dataSort={true}
+			      width='20%'
+						headerAlign='left'
+						dataAlign='right'
 						dataField='engaged'>
 							Engagé
 					</TableHeaderColumn>

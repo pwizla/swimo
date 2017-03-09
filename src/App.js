@@ -67,8 +67,13 @@ class App extends Component {
           'engaged': 0,
           'restant': 0,
         },
-      }
+      },
+      flatBudget: [],
     };
+  }
+
+  componentDidMount() {
+    this.getFlatBudget();
   }
 
   componentDidUpdate() {
@@ -85,6 +90,22 @@ class App extends Component {
     newBudget[category].engaged += -Number(amount);
     newBudget[category].restant = newBudget[category].enveloppe - newBudget[category].engaged;
     this.setState({budget: newBudget});
+  }
+
+  getFlatBudget() {
+    const budget = this.state.budget;
+    let newFlatBudget = [];
+    let categories = Object.keys(budget);
+    categories.map( categ => {
+      let flatcatg = {
+        category: categ,
+        enveloppe: budget[categ].enveloppe,
+        engaged: budget[categ].engaged,
+        restant: budget[categ].restant,
+      }
+      return newFlatBudget.push(flatcatg);
+    });
+    this.setState({flatBudget: newFlatBudget});
   }
 
   handleAddTransaction(obj) {
@@ -115,14 +136,13 @@ class App extends Component {
             transactions={this.state.transactions}
             total={this.state.total}
           />
-          <div className="spacer"></div>
         </div>
         <div className="component-row">
           <TransactionsList
             transactions={this.state.transactions}
           />
           <BudgetTable
-            budget={this.state.budget}
+            flatBudget={this.state.flatBudget}
           />
         </div>
       </div>
