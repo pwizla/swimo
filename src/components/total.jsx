@@ -12,7 +12,7 @@ class Total extends React.Component {
 					<div className="title-box">
 						Solde
 					</div>
-					{total > threshold &&
+					{total >= threshold &&
 						<div className="total-amount">
 							{total.toFixed(2)} €
 						</div>
@@ -24,7 +24,7 @@ class Total extends React.Component {
 					}
 					{total < 0 &&
 						<div className="total-amount danger">
-							{total.toFixed(2)} €
+							<span className="pull-left">&nbsp;&nbsp;&nbsp;!!!</span><span className="pull-right">{total.toFixed(2)} €&nbsp;</span>
 						</div>
 					}
 				</div>

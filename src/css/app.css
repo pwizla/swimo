@@ -37,7 +37,7 @@
 }
 
 .spacer {
-  flex-grow: 1;
+  width: 200px;
   background-color: #efefef;
 
 }
@@ -50,9 +50,9 @@
 .total-box {
   display: flex;
   flex-direction: column;
-  width: 365px;
-/*  flex-grow: 1;
-*/}
+  width: 575px;
+  padding-right: 145px;
+}
 
 .title-box {
   font-weight: bold;
@@ -114,12 +114,24 @@
 }
 
 .narrow-table {
-  max-width: 800px;
+  max-width: 720px;
+}
+
+.budget-table {
+  max-width: 580px;
+}
+
+.budget-table-header {
+  font-size: 11pt;
+  background-color: rgba(232,177,171,0.3);
+}
+
+.budget-table-body {
+  font-size: 11pt;
 }
 
 .swimo-table-header,
 .swimo-table-body{
-  border-collapse: collapse !important;
   font-size: 11pt;
   text-align: left;
   padding: 8px;
@@ -145,5 +157,5 @@
 
 .danger {
   background-color: #E81B00;
-  color: #EFEFEF;
+  color: #FFF;
 }
