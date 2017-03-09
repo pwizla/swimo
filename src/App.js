@@ -114,6 +114,7 @@ class App extends Component {
     this.setState({transactions: transactions});
     this.getTotal(obj.amount);
     this.getBudget(obj.amount, obj.category);
+    this.getFlatBudget();
   }
 
   saveLocally() {
