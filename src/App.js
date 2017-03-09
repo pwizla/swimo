@@ -99,9 +99,9 @@ class App extends Component {
     categories.map( categ => {
       let flatcatg = {
         category: categ,
-        enveloppe: budget[categ].enveloppe,
-        engaged: budget[categ].engaged,
-        restant: budget[categ].restant,
+        enveloppe: budget[categ].enveloppe.toFixed(2),
+        engaged: budget[categ].engaged.toFixed(2),
+        restant: budget[categ].restant.toFixed(2),
       }
       return newFlatBudget.push(flatcatg);
     });
