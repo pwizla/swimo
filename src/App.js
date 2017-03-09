@@ -5,27 +5,68 @@ import Header from './components/header.jsx';
 import NewTransaction from './components/new-transaction';
 import TransactionsList from './components/transactions-list';
 import Total from './components/total';
+import BudgetTable from './components/budget-table';
 
 class App extends Component {
   constructor() {
     super();
     this.handleAddTransaction = this.handleAddTransaction.bind(this);
     this.getTotal = this.getTotal.bind(this);
-    this.getSubtotals = this.getSubtotals.bind(this);
+    this.getBudget = this.getBudget.bind(this);
     this.state = {
       transactions: JSON.parse(localStorage.getItem('swimo-transactions')) || [],
       total: JSON.parse(localStorage.getItem('swimo-total')) || 0,
-      subtotals: JSON.parse(localStorage.getItem('swimo-subtotals')) || {
-        'Courses': 0,
-        'Factures': 0,
-        'Impôts': 0,
-        'Loyer': 0,
-        'Plaisir Perso': 0,
-        'Salaire': 0,
-        'Santé': 0,
-        'Sorties': 0,
-        'Transports': 0,
-        'Autres': 0
+      budget: JSON.parse(localStorage.getItem('swimo-budget')) || {
+        'Courses': {
+          'enveloppe': 50,
+          'engaged': 0,
+          'restant': 0,
+        },
+        'Factures': {
+          'enveloppe': 150,
+          'engaged': 0,
+          'restant': 0,
+        },
+        'Impôts': {
+          'enveloppe': 230,
+          'engaged': 0,
+          'restant': 0,
+        },
+        'Loyer': {
+          'enveloppe': 375,
+          'engaged': 0,
+          'restant': 0,
+        },
+        'Plaisir Perso': {
+          'enveloppe': 30,
+          'engaged': 0,
+          'restant': 0,
+        },
+        'Salaire': {
+          'enveloppe': 1500,
+          'engaged': 0,
+          'restant': 0,
+        },
+        'Santé': {
+          'enveloppe': 78,
+          'engaged': 0,
+          'restant': 0,
+        },
+        'Sorties': {
+          'enveloppe': 30,
+          'engaged': 0,
+          'restant': 0,
+        },
+        'Transports': {
+          'enveloppe': 80,
+          'engaged': 0,
+          'restant': 0,
+        },
+        'Autres': {
+          'enveloppe': 0,
+          'engaged': 0,
+          'restant': 0,
+        },
       }
     };
   }
@@ -39,10 +80,11 @@ class App extends Component {
     this.setState({total: newTotal});
   }
 
-  getSubtotals (amount, category) {
-    const newSubtotals = this.state.subtotals;
-    newSubtotals[category] += Number(amount);
-    this.setState({subtotals: newSubtotals});
+  getBudget (amount, category) {
+    const newBudget = this.state.budget;
+    newBudget[category].engaged += -Number(amount);
+    newBudget[category].restant = newBudget[category].enveloppe - newBudget[category].engaged;
+    this.setState({budget: newBudget});
   }
 
   handleAddTransaction(obj) {
@@ -50,13 +92,13 @@ class App extends Component {
     transactions.push(obj);
     this.setState({transactions: transactions});
     this.getTotal(obj.amount);
-    this.getSubtotals(obj.amount, obj.category);
+    this.getBudget(obj.amount, obj.category);
   }
 
   saveLocally() {
     localStorage.setItem('swimo-transactions', JSON.stringify(this.state.transactions));
     localStorage.setItem('swimo-total', JSON.stringify(this.state.total));
-    localStorage.setItem('swimo-subtotals', JSON.stringify(this.state.subtotals));
+    localStorage.setItem('swimo-budget', JSON.stringify(this.state.budget));
   }
 
   render() {
@@ -78,6 +120,9 @@ class App extends Component {
         <div className="component-row">
           <TransactionsList
             transactions={this.state.transactions}
+          />
+          <BudgetTable
+            budget={this.state.budget}
           />
         </div>
       </div>
