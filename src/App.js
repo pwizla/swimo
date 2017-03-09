@@ -93,17 +93,18 @@ class App extends Component {
   }
 
   getFlatBudget() {
+    // required to use react-bootstrap-table
     const budget = this.state.budget;
     let newFlatBudget = [];
     let categories = Object.keys(budget);
     categories.map( categ => {
-      let flatcatg = {
+      let flatCategory = {
         category: categ,
         enveloppe: budget[categ].enveloppe.toFixed(2),
         engaged: budget[categ].engaged.toFixed(2),
         restant: budget[categ].restant.toFixed(2),
       }
-      return newFlatBudget.push(flatcatg);
+      return newFlatBudget.push(flatCategory);
     });
     this.setState({flatBudget: newFlatBudget});
   }
