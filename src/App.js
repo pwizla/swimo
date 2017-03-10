@@ -134,7 +134,6 @@ class App extends Component {
             transactions={this.state.transactions}
             onAddTransaction={this.handleAddTransaction}
           />
-          <div className="spacer"></div>
           <Total
             transactions={this.state.transactions}
             total={this.state.total}

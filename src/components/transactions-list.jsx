@@ -19,8 +19,7 @@ class TransactionsList extends React.Component {
      };
 
     return (
-      <div className="component-container narrow-table">
-      {/* remove narrow table to get full page width table */}
+      <div className="component-container">
         <div className="title-box">
           Liste des transactions
         </div>

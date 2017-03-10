@@ -1,11 +1,6 @@
 .app {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 12pt;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: nowrap;
 }
 
 .app-header {
@@ -23,13 +18,14 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
 }
 
 .component-container {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  padding: 30px 60px 30px 90px;
+  padding: 30px 90px 30px 90px;
+  min-width: 500px;
 }
 
 .subtle-highlight {
@@ -43,14 +39,12 @@
 
 .new-transac-box {
   width: 365px;
-  height: 300px;
 }
 
 .total-box {
+  width: 365px;
   display: flex;
   flex-direction: column;
-  width: 575px;
-  padding-right: 145px;
 }
 
 .title-box {
@@ -110,11 +104,9 @@
 }
 
 .narrow-table {
-  max-width: 720px;
 }
 
 .budget-table {
-  max-width: 580px;
 }
 
 .budget-table-header {
