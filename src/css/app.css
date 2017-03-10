@@ -24,7 +24,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  }
+}
 
 .component-container {
   display: flex;
@@ -39,7 +39,6 @@
 .spacer {
   width: 200px;
   background-color: #efefef;
-
 }
 
 .new-transac-box {
@@ -73,14 +72,12 @@
   flex-direction: row;
   justify-content: flex-start;
   font-size: 12pt;
-/*  border: solid 1px #0f0;
-*/  margin: 10px 0 5px 0;
+  margin: 10px 0 5px 0;
 }
 
 .label-title {
   font-weight: bold;
-/*  border: solid 1px #00f;
-*/}
+}
 
 .input-box {
   flex-grow: 1;
@@ -91,8 +88,7 @@
   border-bottom: solid 1px #AAAAAA;
   font-size: 16px;
   margin-left: 10px;
-/*  border: solid 1px #0f0;
-*/}
+}
 
 .submit-line {
   display: flex;
@@ -136,12 +132,11 @@
   text-align: left;
   padding: 8px;
   border: none;
-  
 }
 
 .swimo-table-header {
   background-color: rgba(232,177,171, 0.3);
-  }
+}
 
 .swimo-table-body {
   border-collapse: collapse !important;
