@@ -8,7 +8,7 @@ class Total extends React.Component {
     const threshold = SETTINGS.warningThreshold;
     const total = this.props.total;
     return (
-      <div className="component-container subtle-highlight">
+      <div className="component-container subtle-highlight priority-box">
         <div className="total-box">
           <div className="title-box">
             Solde

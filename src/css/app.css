@@ -23,6 +23,7 @@
 .component-container {
   display: flex;
   flex: 1;
+  order: 1;
   flex-direction: column;
   padding: 30px 90px 30px 90px;
   min-width: 500px;
@@ -145,4 +146,10 @@
 .danger {
   background-color: #E81B00;
   color: #FFF;
+}
+
+@media screen and (max-width: 1000px) {
+  .priority-box {
+    order: 0;
+  }
 }
