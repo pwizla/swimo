@@ -1,3 +1,9 @@
+/*
+  THIS COMPONENT IS NOT USED YET
+  It was an attempt to adapt the react-boostrap-table editing features
+  Could be implemented in future releases
+*/
+
 import React from 'react';
 const categories = ['Salaire', 'Impots', 'Loyer', 'Factures', 'Transport'];
 
