@@ -26,7 +26,7 @@
   order: 1;
   flex-direction: column;
   padding: 30px 90px 30px 90px;
-  min-width: 500px;
+  min-width: 420px;
 }
 
 .subtle-highlight {
@@ -53,6 +53,7 @@
   font-size: 24pt;
   color: #E81B00;
   padding: 0 0 30px 0;
+  min-width: 365px;
 }
 
 .total-amount {
@@ -104,10 +105,9 @@
   background-color: #A81400;
 }
 
-.narrow-table {
-}
-
+.transac-table,
 .budget-table {
+  min-width: 365px;
 }
 
 .budget-table-header {
@@ -148,8 +148,66 @@
   color: #FFF;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 999px) {
+  .title-box,
+  .total-amount,
+  .app-header {
+    font-size: 20pt;
+  }
+
+  .app-header {
+    padding: 20px 30px 20px 30px;
+  }
+
+  .new-transac-box,
+  .total-box {
+    width: 300px;
+  }
+
+  .component-container {
+    min-width: 350px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .budget-table-body,
+  .swimo-table-body,
+  .budget-table-header,
+  .swimo-table-header {
+    font-size: 10pt;
+  }
+}
+
+@media screen and (max-width: 699px) {
+  .title-box,
+  .total-amount,
+  .app-header {
+    font-size: 16pt;
+  }
+
+  .app-header {
+    padding: 15px 20px 15px 20px;
+  }
+
+  .new-transac-box,
+  .total-box {
+    width: 300px;
+  }
+
+  .component-container {
+    min-width: 350px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .priority-box {
     order: 0;
+  }
+
+  .budget-table-body,
+  .swimo-table-body,
+  .budget-table-header,
+  .swimo-table-header {
+    font-size: 9pt;
   }
 }

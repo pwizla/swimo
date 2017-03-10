@@ -19,7 +19,7 @@ class TransactionsList extends React.Component {
      };
 
     return (
-      <div className="component-container">
+      <div className="component-container transac-table">
         <div className="title-box">
           Liste des transactions
         </div>

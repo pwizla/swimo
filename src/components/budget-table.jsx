@@ -7,7 +7,7 @@ class BudgetTable extends React.Component {
     const flatBudget = this.props.flatBudget;
 
     return (
-      <div className="component-container budget-table">
+      <div className="component-container budget-table priority-box">
         <div className="title-box">
           Budget
         </div>
