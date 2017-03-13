@@ -41,7 +41,6 @@ class TransactionsList extends React.Component {
           <BootstrapTable
             data={transactions}
             options={this.options}
-            selectRow={selectRow}
             hover={true}
             bordered={false}
             tableHeaderClass='swimo-table-header'
