@@ -15,7 +15,7 @@ class App extends Component {
     this.handleAddTransaction = this.handleAddTransaction.bind(this);
     this.handleToggleChecked = this.handleToggleChecked.bind(this);
     this.saveLocally = this.saveLocally.bind(this);
-    this.getrealTotal = this.getrealTotal.bind(this);
+    this.getRealTotal = this.getRealTotal.bind(this);
     this.getBudget = this.getBudget.bind(this);
     this.state = {
       transactions: JSON.parse(localStorage.getItem('swimo-transactions')) || [],
@@ -46,7 +46,7 @@ class App extends Component {
     console.log("this.state.transactions[index] ", this.state.transactions[index]);
   }
 
-  getrealTotal (amount) {
+  getRealTotal (amount) {
     const newrealTotal = this.state.realTotal + Number(amount);
     this.setState({realTotal: newrealTotal});
   }
@@ -79,7 +79,7 @@ class App extends Component {
     let transactions = this.state.transactions;
     transactions.push(obj);
     this.setState({transactions: transactions});
-    this.getrealTotal(obj.amount);
+    this.getRealTotal(obj.amount);
     this.getBudget(obj.amount, obj.category);
     this.getFlatBudget();
   }
