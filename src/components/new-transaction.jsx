@@ -9,6 +9,7 @@ class NewTransaction extends React.Component {
       description: '',
       category: '',
       amount: '',
+      checked: false,
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -38,6 +39,7 @@ class NewTransaction extends React.Component {
         description: this.state.description,
         category: this.state.category,
         amount: Number(this.state.amount).toFixed(2),
+        checked: this.state.checked,
       });
     }
     this.handleClearForm();
@@ -50,6 +52,7 @@ class NewTransaction extends React.Component {
       description: '',
       category: '',
       amount: '',
+      checked: false,
     })
   }
   
