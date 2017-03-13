@@ -29,6 +29,7 @@ class App extends Component {
 
   componentDidMount() {
     this.getFlatBudget();
+    this.getBankTotal();
   }
 
   componentDidUpdate() {
@@ -117,6 +118,7 @@ class App extends Component {
           <Total
             transactions={this.state.transactions}
             realTotal={this.state.realTotal}
+            bankTotal={this.state.bankTotal}
           />
         </div>
         <div className="component-row">
