@@ -60,7 +60,6 @@
   font-weight: bold;
   font-size: 24pt;
   text-align: right;
-  margin-top: -30px;
 }
 
 .new-transac-form-item {
@@ -116,12 +115,12 @@
 }
 
 .budget-table-body {
-  font-size: 11pt;
+  font-size: 10pt;
 }
 
 .swimo-table-header,
 .swimo-table-body{
-  font-size: 11pt;
+  font-size: 10pt;
   text-align: left;
   padding: 8px;
   border: none;
@@ -146,6 +145,10 @@
 .danger {
   background-color: #E81B00;
   color: #FFF;
+}
+
+.grey {
+  color: #AAA;
 }
 
 @media screen and (max-width: 999px) {

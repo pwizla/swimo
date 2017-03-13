@@ -63,7 +63,7 @@ class TransactionsList extends React.Component {
             </TableHeaderColumn>
             <TableHeaderColumn
               dataSort={true}
-              width='25%'
+              width='35%'
               headerAlign='left'
               dataAlign='left'
               dataField='description'>
@@ -71,7 +71,15 @@ class TransactionsList extends React.Component {
             </TableHeaderColumn>
             <TableHeaderColumn
               dataSort={true}
-              width='25%'
+              width='20%'
+              headerAlign='left'
+              dataAlign='left'
+              dataField='category'>
+                Catégorie
+            </TableHeaderColumn>
+            <TableHeaderColumn
+              dataSort={true}
+              width='15%'
               dataAlign='right'
               dataField='amount'>
                 Montant
