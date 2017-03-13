@@ -15,11 +15,11 @@ class App extends Component {
     this.handleAddTransaction = this.handleAddTransaction.bind(this);
     this.handleToggleChecked = this.handleToggleChecked.bind(this);
     this.saveLocally = this.saveLocally.bind(this);
-    this.getTotal = this.getTotal.bind(this);
+    this.getrealTotal = this.getrealTotal.bind(this);
     this.getBudget = this.getBudget.bind(this);
     this.state = {
       transactions: JSON.parse(localStorage.getItem('swimo-transactions')) || [],
-      total: JSON.parse(localStorage.getItem('swimo-total')) || 0,
+      realTotal: JSON.parse(localStorage.getItem('swimo-realTotal')) || 0,
       budget: JSON.parse(localStorage.getItem('swimo-budget')) || SETTINGS.budget,
       flatBudget: JSON.parse(localStorage.getItem('swimo-flatbudget')) || [],
     };
@@ -46,9 +46,9 @@ class App extends Component {
     console.log("this.state.transactions[index] ", this.state.transactions[index]);
   }
 
-  getTotal (amount) {
-    const newTotal = this.state.total + Number(amount);
-    this.setState({total: newTotal});
+  getrealTotal (amount) {
+    const newrealTotal = this.state.realTotal + Number(amount);
+    this.setState({realTotal: newrealTotal});
   }
 
   getBudget (amount, category) {
@@ -79,14 +79,14 @@ class App extends Component {
     let transactions = this.state.transactions;
     transactions.push(obj);
     this.setState({transactions: transactions});
-    this.getTotal(obj.amount);
+    this.getrealTotal(obj.amount);
     this.getBudget(obj.amount, obj.category);
     this.getFlatBudget();
   }
 
   saveLocally() {
     localStorage.setItem('swimo-transactions', JSON.stringify(this.state.transactions));
-    localStorage.setItem('swimo-total', JSON.stringify(this.state.total));
+    localStorage.setItem('swimo-realTotal', JSON.stringify(this.state.realTotal));
     localStorage.setItem('swimo-budget', JSON.stringify(this.state.budget));
     localStorage.setItem('swimo-flatbudget', JSON.stringify(this.state.flatBudget));
   }
@@ -102,7 +102,7 @@ class App extends Component {
           />
           <Total
             transactions={this.state.transactions}
-            total={this.state.total}
+            realTotal={this.state.realTotal}
           />
         </div>
         <div className="component-row">
