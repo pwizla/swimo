@@ -16,10 +16,12 @@ class App extends Component {
     this.handleToggleChecked = this.handleToggleChecked.bind(this);
     this.saveLocally = this.saveLocally.bind(this);
     this.getRealTotal = this.getRealTotal.bind(this);
+    this.getBankTotal = this.getBankTotal.bind(this);
     this.getBudget = this.getBudget.bind(this);
     this.state = {
       transactions: JSON.parse(localStorage.getItem('swimo-transactions')) || [],
       realTotal: JSON.parse(localStorage.getItem('swimo-realTotal')) || 0,
+      bankTotal: JSON.parse(localStorage.getItem('swimo-bankTotal')) || 0,
       budget: JSON.parse(localStorage.getItem('swimo-budget')) || SETTINGS.budget,
       flatBudget: JSON.parse(localStorage.getItem('swimo-flatbudget')) || [],
     };
@@ -44,11 +46,23 @@ class App extends Component {
     console.log("newTransactions[index].checked: ", newTransactions[index].checked);
     this.setState({newTransactions});
     console.log("this.state.transactions[index] ", this.state.transactions[index]);
+    this.getBankTotal();
   }
 
   getRealTotal (amount) {
     const newrealTotal = this.state.realTotal + Number(amount);
     this.setState({realTotal: newrealTotal});
+  }
+
+  getBankTotal () {
+    let newBankTotal = 0;
+    this.state.transactions.map( (transac) => {
+      if (transac.checked) {
+        newBankTotal += Number(transac.amount);
+      }
+      return newBankTotal;
+    });
+    this.setState({bankTotal: newBankTotal});
   }
 
   getBudget (amount, category) {
