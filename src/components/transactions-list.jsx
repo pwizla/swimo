@@ -1,22 +1,31 @@
 import React from 'react';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import Checkbox from './checkbox';
 
 class TransactionsList extends React.Component {
   constructor(props) {
-     super(props);
+    super(props);
 
-     this.options = {
-       defaultSortName: 'date',
-       defaultSortOrder: 'desc',
-     };
-   }
+    this.checkboxFormatter = this.checkboxFormatter.bind(this);
+
+    this.options = {
+      defaultSortName: 'date',
+      defaultSortOrder: 'desc',
+    };
+  }
+
+  checkboxFormatter(cell, row) {
+    return(
+      <Checkbox
+        thisKey={row.key}
+        checked={row.checked}
+        onToggleChecked={this.props.onToggleChecked}
+      />
+    );
+  }
 
   render() {
     const transactions = this.props.transactions;
-    const selectRow = {
-      mode: 'checkbox',
-      bgColor: 'rgba(18,84,181,.4)'
-     };
 
     return (
       <div className="component-container transac-table">
@@ -55,7 +64,7 @@ class TransactionsList extends React.Component {
             </TableHeaderColumn>
             <TableHeaderColumn
               dataSort={true}
-              width='30%'
+              width='25%'
               headerAlign='left'
               dataAlign='left'
               dataField='description'>
@@ -63,19 +72,19 @@ class TransactionsList extends React.Component {
             </TableHeaderColumn>
             <TableHeaderColumn
               dataSort={true}
-              width='30%'
-              headerAlign='left'
-              dataAlign='left'
-              dataField='category'>
-                Catégorie
-            </TableHeaderColumn>
-            <TableHeaderColumn
-              dataSort={true}
-              width='20%'
-              headerAlign='right'
+              width='25%'
               dataAlign='right'
               dataField='amount'>
                 Montant
+            </TableHeaderColumn>
+            <TableHeaderColumn
+              dataSort={true}
+              width='10%'
+              headerAlign='right'
+              dataAlign='right'
+              dataField='checked'
+              dataFormat={this.checkboxFormatter}>
+                &#10004;
             </TableHeaderColumn>
           </BootstrapTable>
         }

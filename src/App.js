@@ -33,6 +33,19 @@ class App extends Component {
     this.saveLocally();
   }
 
+  handleToggleChecked(event) {
+    const target = event.target;
+    const name = target.name;
+    const index = _.findIndex(this.state.transactions, (transac) => {
+      return String(transac.key) === String(name);
+    })
+    const newTransactions = this.state.transactions;
+    newTransactions[index].checked = !this.state.transactions[index].checked
+    console.log("newTransactions[index].checked: ", newTransactions[index].checked);
+    this.setState({newTransactions});
+    console.log("this.state.transactions[index] ", this.state.transactions[index]);
+  }
+
   getTotal (amount) {
     const newTotal = this.state.total + Number(amount);
     this.setState({total: newTotal});
@@ -95,6 +108,8 @@ class App extends Component {
         <div className="component-row">
           <TransactionsList
             transactions={this.state.transactions}
+            onSave={this.saveLocally}
+            onToggleChecked={this.handleToggleChecked}
           />
           <BudgetTable
             flatBudget={this.state.flatBudget}
