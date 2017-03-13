@@ -39,11 +39,6 @@ const SETTINGS = {
 		  'engaged': 0,
 		  'restant': 0,
 		},
-		'Salaire': {
-		  'enveloppe': 1500,
-		  'engaged': 0,
-		  'restant': 0,
-		},
 		'Santé': {
 		  'enveloppe': 78,
 		  'engaged': 0,
