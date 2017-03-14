@@ -15,6 +15,7 @@ class BudgetTable extends React.Component {
 
   rowFormatter(row) {
     let className = '';
+    if (row.category === 'TOTAL') { className = 'budget-total-line';}
     if (Number(row.restant) <= Number(row.enveloppe) / 10 && Number(row.restant) > 0) {
       className = 'amount-warning';
     } else if (Number(row.restant) < 0) {
