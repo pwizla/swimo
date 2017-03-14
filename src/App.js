@@ -48,9 +48,7 @@ class App extends Component {
     })
     const newTransactions = this.state.transactions;
     newTransactions[index].checked = !this.state.transactions[index].checked
-    console.log("newTransactions[index].checked: ", newTransactions[index].checked);
     this.setState({newTransactions});
-    console.log("this.state.transactions[index] ", this.state.transactions[index]);
     this.getBankTotal();
   }
 
