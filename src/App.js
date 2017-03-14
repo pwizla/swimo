@@ -34,6 +34,15 @@ class App extends Component {
   componentDidMount() {
     this.getBankTotal();
     this.getFlatBudget();
+    this.initializeRemaining();
+  }
+
+  initializeRemaining() {
+    let newBudget = this.state.budget;
+    _.map(newBudget, budgetRow => {
+      return budgetRow['restant'] = Number(budgetRow['enveloppe'] - budgetRow['engaged']);
+    });
+    this.setState({budget: newBudget});
   }
 
   componentDidUpdate() {
