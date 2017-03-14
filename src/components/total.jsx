@@ -8,8 +8,7 @@ class Total extends React.Component {
     const threshold = SETTINGS.warningThreshold;
     const realTotal = this.props.realTotal;
     const bankTotal = this.props.bankTotal;
-    console.log("realTotal: ", realTotal);
-    console.log("bankTotal: ", bankTotal);
+
     return (
       <div className="component-container subtle-highlight priority-box">
         <div className="total-box">
