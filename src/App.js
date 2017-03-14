@@ -34,6 +34,15 @@ class App extends Component {
   componentDidMount() {
     this.getBankTotal();
     this.getFlatBudget();
+    this.initializeRemaining();
+  }
+
+  initializeRemaining() {
+    let newBudget = this.state.budget;
+    _.map(newBudget, budgetRow => {
+      return budgetRow['restant'] = Number(budgetRow['enveloppe'] - budgetRow['engaged']);
+    });
+    this.setState({budget: newBudget});
   }
 
   componentDidUpdate() {
@@ -73,13 +82,14 @@ class App extends Component {
     newBudget[category].engaged += -Number(amount);
     newBudget[category].restant = newBudget[category].enveloppe - newBudget[category].engaged;
     this.setState({budget: newBudget});
+    this.getFlatBudget();
   }
 
   updateBudget(row, cellName, cellValue) {
     const category = row.category;
     const newBudget = this.state.budget;
-    newBudget[category].enveloppe = cellValue;
-    newBudget[category].restant = newBudget[category].enveloppe - newBudget[category].engaged;
+    newBudget[category].enveloppe = Number(cellValue).toFixed(2);
+    newBudget[category].restant = Number(newBudget[category].enveloppe) - Number(newBudget[category].engaged);
     this.setState({budget: newBudget});
     this.getFlatBudget();
   }
@@ -98,6 +108,22 @@ class App extends Component {
       }
       return newFlatBudget.push(flatCategory);
     });
+    let totalEnveloppe = 0;
+    let totalEngaged = 0;
+    let totalRestant = 0;
+    let newTotals = {};
+    _.map(newFlatBudget, category => {
+      totalEnveloppe += Number(category['enveloppe']);
+      totalEngaged += Number(category['engaged']);
+      totalRestant += Number(category['restant']);
+      return newTotals = {
+        category: 'TOTAL',
+        enveloppe: totalEnveloppe.toFixed(2),
+        engaged: totalEngaged.toFixed(2),
+        restant: totalRestant.toFixed(2)
+      };
+    });
+    newFlatBudget.push(newTotals);
     this.setState({flatBudget: newFlatBudget});
   }
 

@@ -13,11 +13,25 @@ class BudgetTable extends React.Component {
     this.props.onUpdateBudget(row, cellName, cellValue);
   }
 
+  rowFormatter(row) {
+    let className = '';
+    if (row.category === 'TOTAL') { className = 'budget-total-line';}
+    if (Number(row.restant) <= Number(row.enveloppe) / 10 && Number(row.restant) > 0) {
+      className = 'amount-warning';
+    } else if (Number(row.restant) < 0) {
+      className = 'amount-danger';
+    }
+    return className;
+  }
+
   render() {
     const flatBudget = this.props.flatBudget;
     const cellEditProps = {
       mode: 'click',
       blurToSave: true,
+      nonEditableRows: () => {
+        return flatBudget.filter( line => line.category === 'TOTAL').map( line => line.category);
+      },
       afterSaveCell: this.onAfterSaveCell
     };
 
@@ -30,10 +44,10 @@ class BudgetTable extends React.Component {
           data={flatBudget}
           cellEdit={cellEditProps}
           options={this.options}
-          hover={true}
           bordered={false}
           tableHeaderClass='budget-table-header'
           tableBodyClass='budget-table-body'
+          trClassName={this.rowFormatter}
           tableStyle={{margin: 0}}>
 
           <TableHeaderColumn

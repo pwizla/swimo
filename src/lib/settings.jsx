@@ -3,6 +3,7 @@ const SETTINGS = {
 	categories: [
 		'',
 		'Courses',
+		'Epargne',
 		'Factures',
 		'Impôts',
 		'Loyer',
@@ -15,7 +16,12 @@ const SETTINGS = {
 	],
 	budget: {
 		'Courses': {
-		  'enveloppe': 50,
+		  'enveloppe': 100,
+		  'engaged': 0,
+		  'restant': 0,
+		},
+		'Epargne': {
+		  'enveloppe': 250,
 		  'engaged': 0,
 		  'restant': 0,
 		},
@@ -35,7 +41,7 @@ const SETTINGS = {
 		  'restant': 0,
 		},
 		'Plaisir Perso': {
-		  'enveloppe': 30,
+		  'enveloppe': 50,
 		  'engaged': 0,
 		  'restant': 0,
 		},
@@ -45,7 +51,7 @@ const SETTINGS = {
 		  'restant': 0,
 		},
 		'Sorties': {
-		  'enveloppe': 30,
+		  'enveloppe': 50,
 		  'engaged': 0,
 		  'restant': 0,
 		},

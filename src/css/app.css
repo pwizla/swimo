@@ -126,7 +126,8 @@
   border: none;
 }
 
-.swimo-table-header {
+.swimo-table-header,
+.budget-total-line {
   background-color: rgba(232,177,171, 0.3);
 }
 
@@ -138,17 +139,26 @@
   background-color: rgba(232,177,171, 0.3);
 }
 
-.warning {
+.total-warning {
   color: #F56B0C;
 }
 
-.danger {
+.amount-danger {
   background-color: #E81B00;
   color: #FFF;
 }
 
+.amount-warning {
+  background-color: rgba(245,107,12, .3);
+}
+
 .grey {
   color: #AAA;
+}
+
+.budget-total-line {
+  border-top: solid 3px rgb(215, 215, 215);
+  font-weight: bold;
 }
 
 @media screen and (max-width: 999px) {
