@@ -108,6 +108,22 @@ class App extends Component {
       }
       return newFlatBudget.push(flatCategory);
     });
+    let totalEnveloppe = 0;
+    let totalEngaged = 0;
+    let totalRestant = 0;
+    let newTotals = {};
+    _.map(newFlatBudget, category => {
+      totalEnveloppe += Number(category['enveloppe']);
+      totalEngaged += Number(category['engaged']);
+      totalRestant += Number(category['restant']);
+      return newTotals = {
+        category: 'TOTAL',
+        enveloppe: totalEnveloppe.toFixed(2),
+        engaged: totalEngaged.toFixed(2),
+        restant: totalRestant.toFixed(2)
+      };
+    });
+    newFlatBudget.push(newTotals);
     this.setState({flatBudget: newFlatBudget});
   }
 
