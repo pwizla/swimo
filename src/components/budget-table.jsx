@@ -40,7 +40,6 @@ class BudgetTable extends React.Component {
           data={flatBudget}
           cellEdit={cellEditProps}
           options={this.options}
-          hover={true}
           bordered={false}
           tableHeaderClass='budget-table-header'
           tableBodyClass='budget-table-body'
