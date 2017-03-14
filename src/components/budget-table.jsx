@@ -1,10 +1,25 @@
 import React from 'react';
+import _ from 'lodash';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 class BudgetTable extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.onAfterSaveCell = this.onAfterSaveCell.bind(this);
+  }
+
+  onAfterSaveCell(row, cellName, cellValue) {
+    this.props.onUpdateBudget(row, cellName, cellValue);
+  }
+
   render() {
     const flatBudget = this.props.flatBudget;
+    const cellEditProps = {
+      mode: 'click',
+      blurToSave: true,
+      afterSaveCell: this.onAfterSaveCell
+    };
 
     return (
       <div className="component-container budget-table priority-box">
@@ -13,6 +28,7 @@ class BudgetTable extends React.Component {
         </div>
         <BootstrapTable
           data={flatBudget}
+          cellEdit={cellEditProps}
           options={this.options}
           hover={true}
           bordered={false}
@@ -23,6 +39,7 @@ class BudgetTable extends React.Component {
           <TableHeaderColumn
             dataSort={true}
             isKey={true}
+            editable={false}
             headerAlign='left'
             dataAlign='left'
             width='30%'
@@ -39,6 +56,7 @@ class BudgetTable extends React.Component {
           </TableHeaderColumn>
           <TableHeaderColumn
             dataSort={true}
+            editable={false}
             width='20%'
             headerAlign='left'
             dataAlign='right'
@@ -47,6 +65,7 @@ class BudgetTable extends React.Component {
           </TableHeaderColumn>
           <TableHeaderColumn
             dataSort={true}
+            editable={false}
             width='20%'
             headerAlign='right'
             dataAlign='right'

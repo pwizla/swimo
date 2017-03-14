@@ -12,12 +12,16 @@ import SETTINGS from './lib/settings';
 class App extends Component {
   constructor() {
     super();
+
     this.handleAddTransaction = this.handleAddTransaction.bind(this);
     this.handleToggleChecked = this.handleToggleChecked.bind(this);
     this.saveLocally = this.saveLocally.bind(this);
     this.getRealTotal = this.getRealTotal.bind(this);
     this.getBankTotal = this.getBankTotal.bind(this);
     this.getBudget = this.getBudget.bind(this);
+    this.getFlatBudget = this.getFlatBudget.bind(this);
+    this.updateBudget = this.updateBudget.bind(this);
+
     this.state = {
       transactions: JSON.parse(localStorage.getItem('swimo-transactions')) || [],
       realTotal: JSON.parse(localStorage.getItem('swimo-realTotal')) || 0,
@@ -28,8 +32,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getFlatBudget();
     this.getBankTotal();
+    this.getFlatBudget();
   }
 
   componentDidUpdate() {
@@ -73,6 +77,15 @@ class App extends Component {
     this.setState({budget: newBudget});
   }
 
+  updateBudget(row, cellName, cellValue) {
+    const category = row.category;
+    const newBudget = this.state.budget;
+    newBudget[category].enveloppe = cellValue;
+    newBudget[category].restant = newBudget[category].enveloppe - newBudget[category].engaged;
+    this.setState({budget: newBudget});
+    this.getFlatBudget();
+  }
+
   getFlatBudget() {
     // required to use react-bootstrap-table
     const budget = this.state.budget;
@@ -81,9 +94,9 @@ class App extends Component {
     categories.map( categ => {
       let flatCategory = {
         category: categ,
-        enveloppe: budget[categ].enveloppe.toFixed(2),
-        engaged: budget[categ].engaged.toFixed(2),
-        restant: budget[categ].restant.toFixed(2),
+        enveloppe: Number(budget[categ].enveloppe).toFixed(2),
+        engaged: Number(budget[categ].engaged).toFixed(2),
+        restant: Number(budget[categ].restant).toFixed(2),
       }
       return newFlatBudget.push(flatCategory);
     });
@@ -129,6 +142,7 @@ class App extends Component {
           />
           <BudgetTable
             flatBudget={this.state.flatBudget}
+            onUpdateBudget={this.updateBudget}
           />
         </div>
       </div>
