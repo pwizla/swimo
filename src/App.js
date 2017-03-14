@@ -87,8 +87,8 @@ class App extends Component {
   updateBudget(row, cellName, cellValue) {
     const category = row.category;
     const newBudget = this.state.budget;
-    newBudget[category].enveloppe = cellValue;
-    newBudget[category].restant = newBudget[category].enveloppe - newBudget[category].engaged;
+    newBudget[category].enveloppe = Number(cellValue).toFixed(2);
+    newBudget[category].restant = Number(newBudget[category].enveloppe) - Number(newBudget[category].engaged);
     this.setState({budget: newBudget});
     this.getFlatBudget();
   }

@@ -21,12 +21,12 @@ class Total extends React.Component {
             </div>
           }
           {(realTotal < threshold && realTotal > 0) &&
-            <div className="total-amount warning">
+            <div className="total-amount total-warning">
               Réel: {realTotal.toFixed(2)} €
             </div>
           }
           {realTotal <= 0 &&
-            <div className="total-amount danger">
+            <div className="total-amount amount-danger">
               <span className="pull-left">
                 &nbsp;&nbsp;&nbsp;!!!
               </span>
@@ -41,12 +41,12 @@ class Total extends React.Component {
             </div>
           }
           {(bankTotal < threshold && bankTotal > 0) &&
-            <div className="total-amount warning">
+            <div className="total-amount total-warning">
               Banque: {bankTotal.toFixed(2)} €
             </div>
           }
           {bankTotal <= 0 &&
-            <div className="total-amount danger">
+            <div className="total-amount amount-danger">
               <span className="pull-left">
                 &nbsp;&nbsp;&nbsp;!!!
               </span>

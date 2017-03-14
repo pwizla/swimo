@@ -138,18 +138,24 @@
   background-color: rgba(232,177,171, 0.3);
 }
 
-.warning {
+.total-warning {
   color: #F56B0C;
 }
 
-.danger {
+.amount-danger {
   background-color: #E81B00;
   color: #FFF;
+}
+
+.amount-warning {
+  background-color: rgba(245,107,12, .2);
+  color: #F56B0C;
 }
 
 .grey {
   color: #AAA;
 }
+
 
 @media screen and (max-width: 999px) {
   .title-box,
