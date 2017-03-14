@@ -29,6 +29,9 @@ class BudgetTable extends React.Component {
     const cellEditProps = {
       mode: 'click',
       blurToSave: true,
+      nonEditableRows: () => {
+        return flatBudget.filter( line => line.category === 'TOTAL').map( line => line.category);
+      },
       afterSaveCell: this.onAfterSaveCell
     };
 
