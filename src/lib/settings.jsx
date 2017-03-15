@@ -1,19 +1,5 @@
 const SETTINGS = {
 	warningThreshold: 200,
-	categories: [
-		'',
-		'Courses',
-		'Epargne',
-		'Factures',
-		'Impôts',
-		'Loyer',
-		'Plaisir Perso',
-		'Salaire',
-		'Santé',
-		'Sorties',
-		'Transports',
-		'Autres'
-	],
 	budget: {
 		'Courses': {
 		  'enveloppe': 100,
