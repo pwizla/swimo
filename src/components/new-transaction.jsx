@@ -59,6 +59,7 @@ class NewTransaction extends React.Component {
   render() {
     const categories = Object.keys(SETTINGS.budget);
     categories.unshift("");
+    categories.push("Salaire");
     return (
       <div className="component-container subtle-highlight">
         <div className="new-transac-box">
