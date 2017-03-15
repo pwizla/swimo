@@ -39,6 +39,5 @@ Some lines are automatically highlighted to draw your attention on certain alert
     ![screen shot 2017-03-15 at 18 43 49](https://cloud.githubusercontent.com/assets/4233866/23962851/be459d3a-09af-11e7-80d3-d0da9e553ef4.jpg)
 
 **Please Note: About budget categories**   
-The number of budget categories and their name is not editable in the UI yet. These data are hardcoded in the `src/lib/settings.jsx` file. Feel free to modify it to your own convenience there, by using the same JSON-based format. Be sure to modify both the `budget`and `categories` JSON objects accordingly.
-
+The number of budget categories and their name is not editable in the UI yet. This data is hardcoded in the `src/lib/settings.jsx` file. Feel free to modify it to your own convenience there, by using the same JSON-based format.
 
