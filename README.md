@@ -7,21 +7,38 @@ _Design inspired by my Swiss roots_ 🇨🇭
 
 ![screenshot as of 2017-03-13](https://github.com/pwizla/swimo/blob/master/screenshot-2017_03_13.jpg)
 
-# Reached release 0.1
+# Reached release 0.2
 
-First release, MVP.
+Second minor release, still in the MVP phase.
 
 For now, you can:
 
 * Add new transactions
-* Get real-time updated total amounts for account
-* See full list of transactions
+* See the full list of transactions
+* Get real-time updated total amounts for account balance and budget envelopes
 * See budget envelopes, as well as engaged and remaining amounts for each envelope
+* Modify the amount allowed to each budget envelope
 
-Targets for next release (0.2):
+**NEW in v0.2 :**
 
-* Envelopes should be editable directly on UI   
-**PLEASE NOTE:**   
-_Envelopes amounts are currently editable only by modifying the JSON-formatted `src/lib/settings.jsx` file_.
+This release focuses on various improvements to the budget table:
 
-* Transaction details in transactions list should be editable
+* **Envelopes are now editable**: click on any amount in the "Envelope" column, edit the amount, and press Enter or click outside of the cell to save it. The table is automatically updated and saved!
+
+* **Totals** are computed and displayed at the bottom of table.
+
+* **Introducing 'Conditional Formatting'**:   
+Some lines are automatically highlighted to draw your attention on certain alert levels: 
+
+    - when your expenses reach 90% or more of the envelope budget, the line is highlighted with a light orange tone
+
+    ![screen shot 2017-03-15 at 18 44 38](https://cloud.githubusercontent.com/assets/4233866/23962844/b72ad876-09af-11e7-98e9-1dabadcf6e36.jpg)
+
+   - when you're over budget, the line turns to a white on red scheme
+
+    ![screen shot 2017-03-15 at 18 43 49](https://cloud.githubusercontent.com/assets/4233866/23962851/be459d3a-09af-11e7-80d3-d0da9e553ef4.jpg)
+
+**Please Note: About budget categories**   
+The number of budget categories and their name is not editable in the UI yet. These data are hardcoded in the `src/lib/settings.jsx` file. Feel free to modify it to your own convenience there, by using the same JSON-based format. Be sure to modify both the `budget`and `categories` JSON objects accordingly.
+
+
