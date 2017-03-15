@@ -57,6 +57,8 @@ class NewTransaction extends React.Component {
   }
   
   render() {
+    const categories = Object.keys(SETTINGS.budget);
+    categories.unshift("");
     return (
       <div className="component-container subtle-highlight">
         <div className="new-transac-box">
@@ -92,7 +94,7 @@ class NewTransaction extends React.Component {
                   className="input-box"
                   value={this.state.category}
                   onChange={this.handleInputChange}>
-                  {SETTINGS.categories.map( item => {
+                  {categories.map( item => {
                     return <option key={item} value={item}>{item}</option>
                   })}
                 </select>
