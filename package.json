@@ -6,7 +6,8 @@
     "chai": "^3.5.0",
     "chai-immutable": "^1.5.3",
     "mocha": "^2.4.5",
-    "react-scripts": "0.9.3"
+    "react-scripts": "0.9.3",
+    "redux-devtools": "^3.3.2"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
